@@ -6,6 +6,8 @@ A simple fastMCP example for a personal MCP server. Uses a set of documentation 
 
 The live MCP server can be accessed at [hjhero.com/mcp](https://www.hjhero.com/mcp)
 
+# Deploying Server
+
 This MCP server can run as:
 
 - `streamable-http` (default) for hosted/network deployment
