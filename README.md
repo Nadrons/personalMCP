@@ -1,6 +1,12 @@
-# personal_mcp
+# Personal MCP Server
 
-This MCP server can now run either as:
+A simple fastMCP example for a personal MCP server. Uses a set of documentation files (not included in repo) to allow agents to build targetted profiles of employment and project history.
+
+## Public URI
+
+The live MCP server can be accessed at [hjhero.com/mcp](https://www.hjhero.com/mcp)
+
+This MCP server can run as:
 
 - `streamable-http` (default) for hosted/network deployment
 - `stdio` for local desktop MCP clients
@@ -73,7 +79,7 @@ Recommended production settings:
 - Keep health checks on `GET /healthz` (or override with `MCP_HEALTH_PATH`)
 - Put TLS and auth in front of the service before exposing it publicly
 
-## Security hardening notes
+## Security notes
 
 - If `MCP_API_KEY` is set, unauthenticated HTTP requests are rejected with `401`.
 - The health endpoint remains open by default for platform health probes.
