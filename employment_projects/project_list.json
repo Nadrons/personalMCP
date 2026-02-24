@@ -1,0 +1,29 @@
+[
+    {
+        "id": "DuckBI",
+        "name": "DuckBI Datalake and Data Platform",
+        "description": "A cross-product data lake combining various data sources. Data from the lake is normalised into data products, which are made available via Azure Databricks Unity Catalog, or as an MCP server delivered our bespoke Copilot Agent, DuckBI.", 
+        "key_words": ["Data Lake", "Data Platform", "Data Products", "Azure Databricks", "Unity Catalog", "MCP Server", "Copilot Agent"],
+        "info_file": "DuckBIProject.md",
+        "employer": "Blackduck",
+        "status": "Completed"
+    },
+    {
+        "id": "telemetry",
+        "name": "Telemetry Self Service Platform",
+        "description": "Allows users to easily and safely create and manage their own datasets in our datalake, provided data is classified as low risk. Developed governance model with defined data owners and contributor roles. Built a self-service portal app to manage the process of registering and posting data through to proposing data products.", 
+        "key_words": ["Data Governance", "Data Portal", "Data Products", "Pipelines"],
+        "info_file": "telemetrySelfServiceProject.md",
+        "employer": "Blackduck",
+        "status": "Completed"
+    },
+    {
+        "id": "misc",
+        "name": "Misc. Projects",
+        "description": "Various smaller projects, including management of our internal LiteLLM deployment, internal AI upskilling initiatives, consulting on ML Ops projects from other teams, etc.", 
+        "key_words": ["LiteLLM", "AI Upskilling", "ML Ops", "Consulting", "Training", "Media Outreach", "Public Speaking"],
+        "info_file": "extraWork.md",
+        "employer": "Blackduck",
+        "status": "Completed"
+}
+]
