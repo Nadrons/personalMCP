@@ -8,6 +8,4 @@ __pycache__/
 *.log
 
 # Personal MCP specific ignores
-employment_projects/*.json
 employment_projects/*.md
-general_info/*.md
