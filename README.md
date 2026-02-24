@@ -50,7 +50,7 @@ MCP_HOST=0.0.0.0 MCP_PORT=8080 MCP_TRANSPORT=streamable-http python personal_mcp
 python personal_mcp.py --transport stdio
 ```
 
-## Docker
+## Run in Docker (HTTP)
 
 Build image:
 
@@ -70,7 +70,9 @@ docker run --rm -p 8000:8000 \
 
 ## Managed hosting options
 
-This container can be deployed to platforms like Render, Railway, Fly.io, Azure Container Apps, or ECS/Fargate.
+The docker container can be deployed to platforms like Render, Railway, Fly.io, Azure Container Apps, or ECS/Fargate. It is currently hosted on a Macbook Air.
+
+![Old image, good image.](https://i.redd.it/i1wrx2uqhyya1.jpg)
 
 Recommended production settings:
 
