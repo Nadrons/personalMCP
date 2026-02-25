@@ -172,31 +172,52 @@ Co-managed enterprise-scale LLM inference infrastructure supporting 400 unique u
 
   
 
-### 2016 – 2022: Weatherford International Ltd. - Research Physicist / Data Analyst
+### 2016 – 2022: Weatherford International Ltd. - Research Physicist
 
   
 
-Oilfield services company specializing in oil well exploration. Applied data science and signal processing to well logging data, managing interdepartmental R&D projects from conception to field deployment.
+*Weatherford is an oilfield services company specializing in exploration and development of oil wells. This role involved dealing with stakeholders and clients from all levels of the business, with the geoscience department being involved at all stages of the R&D cycle. I worked on the development of several new well logging tools and algorithms, and managed multiple large-scale interdepartmental projects.*
 
   
 
 #### Key Responsibilities
 
-  
+**Designing and Improving Signal Processing Techniques and Data Analysis Algorithms**
 
-- Designed signal processing and ML pipelines for multi-sensor well logging systems (could be 20+ concurrent devices).
-- Implemented CNNs and LSTMs to aggregate measured signals into descriptive geological models.
-- Led data archaeology project: aggregated and cleaned legacy datasets from early 2000s for holistic analysis.
+- Oil well logs involve up to 20 measurement devices running in tandem, continuously taking data in both depth- and time-series formats.
+- Specialized in implementing machine learning algorithms including linear regression, Convolutional and LSTM neural networks to bring these tools together into a set of cohesive, complementary measurements.
+- Led data archaeology project: aggregated, cleaned, prepped and interpreted unsorted datasets dating back to the early 2000s to build cutting-edge, fully holistic lithology interpretation algorithms.
 
-  
+**Development of Nuclear, Electrical and Optical Measurement Techniques and Devices**
 
-#### Relevant Training
+- Led the development of the new gamma ray density measurement, the "Spectral Litho-Density" (SLD):
+    - Designed tool dimensions based on physics first principles, bringing in a round table of mechanical and electrical engineers to build a robust, accurate sonde.
+    - Developed measurements for the tool, starting with fundamental photon counts -> density relationship for Compton scattering, then building in geometric corrections to account for deviations within the oil well. Finally used a bayesian model to correct for lithology based on the shape of the gamma ray spectrum.
+    - Ran extensive tests in known test blocks and test wells to validate the tool and tweak measurement parameters.
+    - Negotiated for and coordinated the tool's use in client wells as part of the test process, allowing comparisons between existing density measurements and our new tool.
+- Developed measurement suite for the "Geochemical Spectroscopy Instrument" (GSI):
+    - Worked alongside Dr. Richard Pemper to develop the spectral decomposition logic behind the GSI.
+    - Ran tests of the tool in our UK-based test blocks and test wells.
+    - Working with our radiation safety officer, I wrote up extensive safety documentation and gave safety training lecturers to field engineers for using the tool's 14MeV pulsed neutron generator.
+    - Delivered training seminars to field engineers and presented the tool to physicists from prospective oil and gas businesses.
+    - Tool paper available via OnePetro: [A New Geochemical Logging Tool for Determination of Formation Chemistry and Mineralogy in both Conventional and Unconventional Reservoirs](https://onepetro.org/SPEATCE/proceedings-abstract/18ATCE/18ATCE/D031S029R002/214371).
 
-  
+**Delivering Reports and Presentations to Clients and Upper Management**
 
-- MathWorks Deep Learning with MATLAB
-- PRINCE2 Project Management
-- Writing Point scientific writing
+- Regularly presented information to both management and clients with varying levels of technical expertise.
+- Developed ability to make difficult concepts understandable to diverse audiences ranging from laymen to technical specialists.
+
+**Liaising With and Providing Support to Field Engineers and Global Staff**
+- Acted as subject matter expert to address technical issues directly with engineers, understanding problems and guiding them through to solutions.
+- Delivered multiple hour-long training seminars to operational engineers worldwide.
+
+#### Extra Training
+
+- **MathWorks:** Deep Learning with MATLAB
+- **Udemy:** Deep Learning with Python and Keras
+- **Etteplan:** ASD Simplified Technical English (ASD-STE100)
+- **Writing Point:** Scientific writing for industry journals
+- **PRINCE2:** Project Management Training
 
   
 
