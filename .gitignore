@@ -6,6 +6,7 @@ __pycache__/
 *.db
 *.sqlite
 *.log
+.DS_Store
 
 # Personal MCP specific ignores
 employment_projects/*.md
