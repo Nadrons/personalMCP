@@ -144,6 +144,7 @@ class HTTPApp:
         self.app = app
         self.api_key = api_key
         self.health_path = health_path
+        self.index_path = BASE_DIR / "index.html"
 
     async def __call__(self, scope, receive, send):
         if scope["type"] != "http":
@@ -152,6 +153,11 @@ class HTTPApp:
 
         path = scope.get("path", "")
         method = scope.get("method", "GET")
+
+        # Serve the HTML setup guide at root path
+        if path == "/" and method == "GET":
+            await self._send_html(send)
+            return
 
         if path == self.health_path and method == "GET":
             await self._send_json(send, 200, '{"status":"ok"}')
@@ -179,6 +185,32 @@ class HTTPApp:
             return bearer_token == self.api_key
 
         return False
+
+    async def _send_html(self, send):
+        if not self.index_path.exists():
+            # Fallback if index.html doesn't exist
+            html_content = "<html><body><h1>Personal MCP Server</h1><p>Server is running at <code>/mcp</code></p></body></html>"
+            payload = html_content.encode("utf-8")
+        else:
+            with self.index_path.open("r", encoding="utf-8") as f:
+                payload = f.read().encode("utf-8")
+        
+        await send(
+            {
+                "type": "http.response.start",
+                "status": 200,
+                "headers": [
+                    [b"content-type", b"text/html; charset=utf-8"],
+                    [b"content-length", str(len(payload)).encode("utf-8")],
+                ],
+            }
+        )
+        await send(
+            {
+                "type": "http.response.body",
+                "body": payload,
+            }
+        )
 
     async def _send_json(self, send, status_code: int, body: str):
         payload = body.encode("utf-8")

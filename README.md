@@ -5,6 +5,7 @@ A simple fastMCP example for a personal MCP server. Uses a set of documentation 
 ## Public URI
 
 The live MCP server can be accessed at [hjhero.com/mcp](https://hjhero.com/mcp)
+Configuration instructions available at [hjhero.com](https://hjhero.com/)
 
 # Deploying Server
 

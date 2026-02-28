@@ -10,3 +10,4 @@ __pycache__/
 
 # Personal MCP specific ignores
 employment_projects/*.md
+genned_cvs/*

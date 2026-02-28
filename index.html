@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal MCP Server - Setup Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+        
+        .intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            border-left: 3px solid #0066cc;
+        }
+        
+        h1 {
+            color: #222;
+            margin-bottom: 10px;
+            font-size: 2em;
+            font-weight: 600;
+        }
+        
+        h2 {
+            color: #0066cc;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        
+        h3 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .client-section {
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        
+        code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 16px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        .step {
+            margin: 20px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .step::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 4px;
+            height: 4px;
+            background: #0066cc;
+            border-radius: 50%;
+            top: 10px;
+        }
+        
+        .tools-list {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .tools-list h3 {
+            color: #0066cc;
+            margin-top: 0;
+        }
+        
+        .tools-list ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .tools-list li {
+            margin: 8px 0;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .endpoint-url {
+            background: #f0f0f0;
+            color: #333;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            text-align: left;
+            font-size: 1em;
+            font-weight: 500;
+            margin: 20px 0;
+            word-break: break-all;
+        }
+
+        .endpoint-url ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MCP Server Setup Guide</h1>
+        
+        <div class="intro">
+            <p>This MCP server provides AI assistants with detailed access to my background, CV, and project portfolio.
+                Primarily designed for personal use, it allows me to easily share my work experience and skills with AI tools in VS Code, Claude Desktop, and other MCP-compatible clients. <br><br>
+                The "server" is served from a Macbook Air via a Cloudflared tunnel. If you experience any issues it's probably because my kids are playing Minecraft - there is no hope of remediation.
+            </p>
+            </div>
+            
+            <div class="endpoint-url">
+                <h4>Connection Params:</h4>
+                <ul>
+                    <li><strong>Server Endpoint:</strong> https://hjhero.com/mcp <br>
+                    <li><strong>Public API Key:</strong> "keepbotsatbay" <br>
+                    <li><strong>Transport Type:</strong> streamable-http <br>
+                    <li><strong>Git Repo:</strong> <a href="https://github.com/Nadrons/personalMCP" target="_blank">github.com/Nadrons/personalMCP</a>
+                </ul>
+            </div>
+            
+            <div class="tools-list">
+                <h3>Available Tools</h3>
+                <ul>
+                    <li><code>get_full_cv</code> - Retrieve complete CV/resume with work experience, education, and skills.</li>
+                    <li><code>get_project_list</code> - List all available projects with descriptions, status, and key technologies.</li>
+                    <li><code>get_project_info</code> - Get detailed information about a specific project.</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <strong>Note:</strong> This server is publicly accessible but provides read-only access to professional information. A public API key is provided to prevent automated abuse.
+                <br><br> Always be cautious when connecting to public servers and never share sensitive information through unknown MCP tools.
+            </div>
+
+            <h2>Configuration Instructions</h2>
+            <div class="client-section">
+            <h3>VS Code Chat MCP:</h3>
+            
+                <div class="step">
+                    <strong>Step 1:</strong> Open Command Palette (Ctrl+Shift+P or Cmd+Shift+P) in VS Code.
+                </div>
+                
+                <div class="step">
+                    <strong>Step 2:</strong> Search for "MCP" and select "MCP: Open User Configuration".
+                </div>
+                
+                <div class="step">
+                    <strong>Step 3:</strong> Enter the following configuration to add the server:.
+                </div>
+                
+                <pre><code>{
+	"servers": {
+		"tim_mcp": {
+			"url": "https://hjhero.com/mcp",
+			"type": "https",
+			"headers": {
+				"Authorization": "Bearer keepbotsatbay"
+			}
+		}
+	},
+	"inputs": []
+}</code></pre>
+
+                <div class="success">
+                    You can now talk to VS Code chat about my professional background, projects, and experience!
+                </div>
+            </div>
+            
+            <div class="client-section">
+                <h3>Claude Desktop MCP:</h3>
+                <div class="step">
+                    <strong>Step 1:</strong> Locate your Claude Desktop configuration file:
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>macOS:</strong> <code>~/Library/Application Support/Claude/claude_desktop_config.json</code></li>
+                        <li><strong>Windows:</strong> <code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+                    </ul>
+                </div>
+                
+                <div class="step">
+                    <strong>Step 2:</strong> Open the file in a text editor and add the server configuration:
+                </div>
+                
+                <pre><code>{
+  "mcpServers": {
+    "tim_mcp": {
+      "url": "https://hjhero.com/mcp",
+      "transport": "streamable-http",
+      "headers": {
+        "Authorization": "Bearer keepbotsatbay"
+    }
+  }
+}</code></pre>
+                
+                <div class="step">
+                    <strong>Step 3:</strong> Save the file and restart Claude Desktop
+                </div>
+                
+                <div class="success">
+                    The server tools will now appear in Claude Desktop's MCP tools panel!
+                </div>
+            </div>
+      
+            
+            <h2>Example Usage</h2>
+            
+            <p style="margin: 20px 0;">Once configured, you can ask your AI assistant questions like:</p>
+            
+            <ul style="margin-left: 30px; line-height: 2;">
+                <li>"What is Tim's professional background?"</li>
+                <li>"Show me Tim's work experience and key skills"</li>
+                <li>"What projects has Tim worked on?"</li>
+                <li>"Tell me about Tim's experience with [specific technology]"</li>
+                <li>"Get detailed information about project [project_id]"</li>
+            </ul>
+            
+            <h2>Troubleshooting</h2>
+            
+            <div style="margin-left: 20px;">
+                <p><strong>Server not connecting?</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Verify the URL is correct: <code>https://hjhero.com/mcp</code></li>
+                    <li>Ensure you're using <code>streamable-http</code> as the transport type</li>
+                    <li>Check that your MCP client is up to date</li>
+                    <li>Restart your MCP client after configuration changes</li>
+                </ul>
+                
+                <p style="margin-top: 20px;"><strong>Tools not appearing?</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Check the MCP client's logs for error messages</li>
+                    <li>Ensure the server is running by visiting <a href="https://hjhero.com/healthz" target="_blank">https://hjhero.com/healthz</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Nadrons' Personal MCP Server</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/Nadrons/personalMCP" target="_blank">View on GitHub</a> · 
+                <a href="https://modelcontextprotocol.io" target="_blank">Learn about MCP</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                Built with <a href="https://github.com/jlowin/fastmcp" target="_blank">FastMCP</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
