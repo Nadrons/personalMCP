@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal MCP Server - Setup Guide</title>
+    <script>
+        // ============================================
+        // CONFIGURATION - Change API key here
+        // ============================================
+        const API_KEY = "keepbotsatbay";
+        // ============================================
+    </script>
     <style>
         * {
             margin: 0;
@@ -200,7 +207,7 @@
                 <h4>Connection Params:</h4>
                 <ul>
                     <li><strong>Server Endpoint:</strong> https://hjhero.com/mcp <br>
-                    <li><strong>Public API Key:</strong> "keepbotsatbay" <br>
+                    <li><strong>Public API Key:</strong> "<span id="api-key-display"></span>" <br>
                     <li><strong>Transport Type:</strong> streamable-http <br>
                     <li><strong>Git Repo:</strong> <a href="https://github.com/Nadrons/personalMCP" target="_blank">github.com/Nadrons/personalMCP</a>
                 </ul>
@@ -242,7 +249,7 @@
 			"url": "https://hjhero.com/mcp",
 			"type": "https",
 			"headers": {
-				"Authorization": "Bearer keepbotsatbay"
+				"Authorization": "Bearer <span id="vscode-api-key"></span>"
 			}
 		}
 	},
@@ -274,7 +281,7 @@
       "url": "https://hjhero.com/mcp",
       "transport": "streamable-http",
       "headers": {
-        "Authorization": "Bearer keepbotsatbay"
+        "Authorization": "Bearer <span id="claude-api-key"></span>"
     }
   }
 }</code></pre>
@@ -331,5 +338,14 @@
             </p>
         </footer>
     </div>
+
+    <script>
+        // Populate API key in all locations
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('api-key-display').textContent = API_KEY;
+            document.getElementById('vscode-api-key').textContent = API_KEY;
+            document.getElementById('claude-api-key').textContent = API_KEY;
+        });
+    </script>
 </body>
 </html>

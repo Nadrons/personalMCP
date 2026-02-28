@@ -1,0 +1,1 @@
+.md files to be called by get_project_info(). Follows semi-structured layout, likely to be formalised in the future.
